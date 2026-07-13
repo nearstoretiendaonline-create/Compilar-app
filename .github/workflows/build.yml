@@ -20,7 +20,8 @@ jobs:
       - name: Build APK with Buildozer
         run: |
           export PATH=$PATH:~/.local/bin
-          yes | buildozer android debug
+          buildozer android old_clean
+          buildozer android debug --accept-licenses
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
