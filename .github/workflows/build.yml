@@ -16,7 +16,7 @@ jobs:
       - name: Install System Dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y autoconf libtool pkg-config zlib1g-dev
+          sudo apt-get install -y autoconf libtool libtool-bin pkg-config zlib1g-dev
 
       - name: Install Buildozer
         run: |
@@ -25,6 +25,7 @@ jobs:
       - name: Build APK with Buildozer
         run: |
           export PATH=$PATH:~/.local/bin
+          buildozer android clean
           buildozer android debug --accept-licenses
 
       - name: Upload APK Artifact
